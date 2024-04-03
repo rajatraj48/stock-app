@@ -1,0 +1,52 @@
+.form-container {
+    display: flex;
+}
+
+.form-column {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.alert {
+    font-size: x-small;
+    color: red;
+}
+
+.pos {
+    margin-left: 15px;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Primary Button Styles */
+.bluebtn {
+    color: #fff;
+    background-color: #004e92; /* Darker shade of blue */
+}
+
+/* Hover Styles */
+.btn:hover {
+    background-color: #003366; /* Darker shade of hover color */
+}

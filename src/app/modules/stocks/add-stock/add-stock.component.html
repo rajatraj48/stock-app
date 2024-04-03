@@ -1,0 +1,78 @@
+<form #myForm="ngForm"(ngSubmit)="onSubmit(myForm)">
+    <div  class="form-container" >
+    <div class="form-column">
+        <div class="form-group">
+            <label for="stockName">Stock Name</label>
+            <input type="text" id="stockName" class="form-control" name="stockName" [(ngModel)]="stock.stockName"
+            #stockName="ngModel"  required>
+            <div *ngIf="stockName.invalid && (stockName.dirty || stockName.touched)" class="alert alert-danger">
+                <div *ngIf="stockName.errors?.['required']">Stock name is required.</div>
+                
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            <label for="listingPrice">Listing Price</label>
+            <input type="text" id="listingPrice" class="form-control" name="listingPrice"
+                   [(ngModel)]="stock.listingPrice" #listingPrice="ngModel" required
+                   pattern="[0-9]+(\.[0-9]+)?">
+            <div *ngIf="listingPrice.invalid && (listingPrice.dirty || listingPrice.touched)" class="alert alert-danger">
+                <div *ngIf="listingPrice.errors?.['required']">Listing Price is required.</div>
+                <div *ngIf="listingPrice.errors?.['pattern']">Please enter a valid number.</div>
+            </div>
+        </div>
+        
+        
+    </div>
+
+    <div class="form-column">
+        <div class="form-group">
+            <label for="pricePerUnit">Price Per Unit</label>
+            <input type="text" id="pricePerUnit" class="form-control" name="pricePerUnit"
+                   [(ngModel)]="stock.pricePerUnit" #pricePerUnit="ngModel" required
+                   pattern="[0-9]+(\.[0-9]+)?">
+            <div *ngIf="pricePerUnit.invalid && (pricePerUnit.dirty || pricePerUnit.touched)" class="alert alert-danger">
+                <div *ngIf="pricePerUnit.errors?.['required']">Price Per Unit is required.</div>
+                <div *ngIf="pricePerUnit.errors?.['pattern']">Please enter a valid number.</div>
+            </div>
+        </div>
+        
+
+        <!-- Add other form controls as needed -->
+    </div>
+    <div class="form-column">
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="text" id="quantity" class="form-control" name="quantity"
+                   [(ngModel)]="stock.quantity" #quantity="ngModel" required
+                   pattern="[0-9]+">
+            <div *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)" class="alert alert-danger">
+                <div *ngIf="quantity.errors?.['required']">Quantity is required.</div>
+                <div *ngIf="quantity.errors?.['pattern']">Please enter a valid number.</div>
+            </div>
+        </div>
+        
+
+        <!-- Add other form controls as needed -->
+    </div>
+    <div class="form-column">
+        <div class="form-group">
+            <label for="type">Type</label>
+            <select id="type" class="form-control" name="type" [(ngModel)]="stock.type" #type="ngModel" required>
+                <option value="" disabled selected>Select Type</option>
+                <option value="BUY">BUY</option>
+                <option value="SELL">SELL</option>
+            </select>
+            <div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger">
+                <div *ngIf="type.errors?.['required']">Type is required.</div>
+
+            </div>
+        </div>
+    </div>
+    
+</div>
+    <div class="form-group pos">
+        <button type="submit" class="btn bluebtn ">Submit</button>
+    </div>
+</form>
